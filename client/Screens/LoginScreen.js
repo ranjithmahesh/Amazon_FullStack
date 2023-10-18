@@ -51,12 +51,14 @@ const LoginScreen = () => {
       password: password,
     };
 
-    axios.post("http://192.168.0.106:8000/login", user).then((response) => {
-      console.log(response);
-      const token = response.data.token;
-      AsyncStorage.setItem("authToken", token);
-      navigation.replace("Main");
-    });
+    axios
+      .post("https://amazon-clone-6htn.onrender.com/login", user)
+      .then((response) => {
+        console.log(response);
+        const token = response.data.token;
+        AsyncStorage.setItem("authToken", token);
+        navigation.replace("Main");
+      });
   };
   return (
     <SafeAreaView

@@ -56,7 +56,7 @@ const AddressScreen = () => {
     }
 
     axios
-      .post("http://192.168.0.106:8000/addresses", { userId, address })
+      .post("https://amazon-clone-6htn.onrender.com/addresses", { userId, address })
       .then((response) => {
         Alert.alert("Success", "Addresses added successfully");
         setName("");

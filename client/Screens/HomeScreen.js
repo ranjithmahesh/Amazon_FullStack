@@ -36,7 +36,7 @@ const HomeScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.0.106:8000/addresses/${userId}`
+        `https://amazon-clone-6htn.onrender.com/addresses/${userId}`
       );
 
       const { addresses } = response.data;

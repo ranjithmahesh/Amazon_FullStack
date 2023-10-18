@@ -30,7 +30,7 @@ const RegisterScreen = () => {
 
     // send a POST  request to the backend API to register the user
     axios
-      .post("http://192.168.0.106:8000/register", user)
+      .post("https://amazon-clone-6htn.onrender.com/register", user)
       .then(() => {
         Alert.alert(
           "Registration successful",

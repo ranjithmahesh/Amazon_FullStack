@@ -44,7 +44,7 @@ const ConfirmationScreen = () => {
       };
 
       const response = await axios.post(
-        "http://192.168.0.106:8000/orders",
+        "https://amazon-clone-6htn.onrender.com/orders",
         orderData
       );
 
@@ -88,7 +88,7 @@ const ConfirmationScreen = () => {
       };
 
       const response = await axios.post(
-        "http://192.168.0.106:8000/orders",
+        "https://amazon-clone-6htn.onrender.com/orders",
         orderData
       );
 
@@ -113,7 +113,7 @@ const ConfirmationScreen = () => {
   const fetchAddresses = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.0.106:8000/addresses/${userId}`
+        `https://amazon-clone-6htn.onrender.com/addresses/${userId}`
       );
 
       const { addresses } = response.data;
@@ -293,7 +293,10 @@ const ConfirmationScreen = () => {
                   <View></View>
                   {selectedAddress && selectedAddress._id === item?._id && (
                     <Pressable
-                      onPress={() => setCurrentStep(1)}
+                      onPress={() => {
+                        setCurrentStep(1);
+                        setAddresses("");
+                      }}
                       style={{
                         backgroundColor: "#008397",
                         padding: 10,
@@ -351,7 +354,10 @@ const ConfirmationScreen = () => {
             </Text>
           </View>
           <Pressable
-            onPress={() => setCurrentStep(2)}
+            onPress={() => {
+              setCurrentStep(2);
+              setOptions(false);
+            }}
             style={{
               backgroundColor: "#FFC72C",
               padding: 10,
@@ -435,7 +441,12 @@ const ConfirmationScreen = () => {
           </View>
 
           <Pressable
-            onPress={() => setCurrentStep(3)}
+            onPress={() => {
+              setCurrentStep(3)
+            
+              
+              console.log(selectedOption);
+            }}
             style={{
               backgroundColor: "#FFC72C",
               padding: 10,
@@ -449,7 +460,7 @@ const ConfirmationScreen = () => {
           </Pressable>
         </View>
       )}
-      {currentStep === 3 && selectedOption === "cash" && (
+      {currentStep === 3 && selectedOption === "cash" ?(
         <View style={{ marginHorizontal: 20 }}>
           <Text style={{ fontSize: 20, fontWeight: "bold" }}>Order Now</Text>
 
@@ -576,7 +587,7 @@ const ConfirmationScreen = () => {
             <Text>Place your order</Text>
           </Pressable>
         </View>
-      )}
+      ):(null)}
     </ScrollView>
   );
 };

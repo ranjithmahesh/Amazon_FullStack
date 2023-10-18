@@ -53,7 +53,7 @@ const ProfileScreen = () => {
     const fetchUserProfile = async () => {
       try {
         const response = await axios.get(
-          `http://192.168.0.106:8000/profile/${userId}`
+          `https://amazon-clone-6htn.onrender.com/profile/${userId}`
         );
         const { user } = response.data;
         setUser(user);
@@ -76,7 +76,7 @@ const ProfileScreen = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          `http://192.168.0.106:8000/orders/${userId}`
+          `https://amazon-clone-6htn.onrender.com/orders/${userId}`
         );
         const orders = response.data.orders;
         setOrders(orders);
@@ -88,7 +88,7 @@ const ProfileScreen = () => {
     };
 
     fetchOrders();
-  }, []);
+  }, [setOrders]);
   console.log("orders", orders);
   return (
     <ScrollView style={{ padding: 10, flex: 1, backgroundColor: "white" }}>
